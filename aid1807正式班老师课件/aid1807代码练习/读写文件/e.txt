@@ -1,6 +1,0 @@
-1234
-abcd
-hello
-9101112
-AbCd
-return
