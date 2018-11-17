@@ -104,7 +104,7 @@ def query_views(request):
   # authors = Author.objects.filter(name__contains='wang')
   # for au in authors:
   #   print(au.name,au.age)
-  # books =   Book.objects.filter(publicate_date__year=2015)
+  # books = Book.objects.filter(publicate_date__year=2015)
   # for book in books:
   #   print(book.title,book.publicate_date)
   # books =   Book.objects.filter(publicate_date__year__gte=2015)
@@ -124,9 +124,9 @@ def query_views(request):
   # print(result)
   # result=Author.objects.all().aggregate(count=Count('name'))
   # print(result)
-  # result = Author.objects.values('isActive').annotate(avg=Avg('age')).filter(avg__gte=28)
-  # print(result.query)
-  # print(result)
+  result = Author.objects.values('isActive').annotate(avg=Avg('age')).filter(avg__gte=28)
+  print(result.query)
+  print(result)
   return HttpResponse("OK")
 
 def add01_views(request):

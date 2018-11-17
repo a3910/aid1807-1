@@ -157,7 +157,7 @@ def raw_views(request):
 
 def doSQL(request):
   with connection.cursor() as cursor:
-    sql = "delete from index_author where name = '吕老师'"
+    sql = "delete from author where name = '吕老师'"
     cursor.execute(sql)
     return HttpResponse("OK")
 

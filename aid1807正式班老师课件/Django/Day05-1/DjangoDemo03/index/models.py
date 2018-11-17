@@ -28,56 +28,56 @@ class Publisher(models.Model):
 
 #创建Author实体类
 class Author(models.Model):
-  name = models.CharField(max_length=30)
-  age = models.IntegerField()
-  email = models.EmailField(null=True)
-  #增加一个字段，isActive用于表示用户的激活状态
-  #类型为BooleanField(),
-  # True表示用户已激活,False表示用户未激活
-  isActive = models.BooleanField(default=True)
-  def __repr__(self):
-    return "Author:%r"%self.name
-  def __str__(self):
-    return self.name
-  class Meta:
-    db_table = 'author'
-    verbose_name = '书生'
-    verbose_name_plural = verbose_name
-    ordering=['age']
+    name = models.CharField(max_length=30)
+    age = models.IntegerField()
+    email = models.EmailField(null=True)
+    #增加一个字段，isActive用于表示用户的激活状态
+    #类型为BooleanField(),
+    # True表示用户已激活,False表示用户未激活
+    isActive = models.BooleanField(default=True)
+    def __repr__(self):
+      return "Author:%r"%self.name
+    def __str__(self):
+      return self.name
+    class Meta:
+      db_table = 'author'
+      verbose_name = '书生'
+      verbose_name_plural = verbose_name
+      ordering=['age']
 
 #创建Book实体类
 class Book(models.Model):
-  title = models.CharField(max_length=50)
-  publicate_date = models.DateField()
-  #增加对Publisher(一)的引用
-  publisher = models.ForeignKey(Publisher,null=True)
-  def __repr__(self):
-    return "Book:%r"%self.title
-  def __str__(self):
-    return self.title
-  class Meta:
-    db_table = 'book'
-    verbose_name = '小黄书'
-    verbose_name_plural = verbose_name
-    ordering=['-publicate_date']
+    title = models.CharField(max_length=50)
+    publicate_date = models.DateField()
+    #增加对Publisher(一)的引用
+    publisher = models.ForeignKey(Publisher,null=True)
+    def __repr__(self):
+      return "Book:%r"%self.title
+    def __str__(self):
+      return self.title
+    class Meta:
+      db_table = 'book'
+      verbose_name = '小黄书'
+      verbose_name_plural = verbose_name
+      ordering=['-publicate_date']
 
 
 #创建Wife实体类
 class Wife(models.Model):
-  name = models.CharField(max_length=30)
-  age = models.IntegerField()
-  #增加映射关系(1对1)
-  author = models.OneToOneField(Author,null=True)
-  def __repr__(self):
-    return "Wife:%r"%self.name
-  def __str__(self):
-    return self.name
+    name = models.CharField(max_length=30)
+    age = models.IntegerField()
+    #增加映射关系(1对1)
+    author = models.OneToOneField(Author,null=True)
+    def __repr__(self):
+      return "Wife:%r"%self.name
+    def __str__(self):
+      return self.name
 
-  class Meta:
-    db_table = "wife"
-    verbose_name="娘子"
-    verbose_name_plural=verbose_name
-    ordering=['age']
+    class Meta:
+      db_table = "wife"
+      verbose_name="娘子"
+      verbose_name_plural=verbose_name
+      ordering=['age']
 
 
 
