@@ -13,12 +13,11 @@ class Publisher(models.Model):
   city = models.CharField(max_length=50)
   country = models.CharField(max_length=50)
   website = models.URLField()
-
   def __repr__(self):
-    return "Publisher:%r" % self.name
+        return "Publisher:%r" % self.name
 
   def __str__(self):
-    return self.name
+        return self.name
 
   class Meta:
     db_table = 'publisher'
@@ -35,6 +34,8 @@ class Author(models.Model):
     #类型为BooleanField(),
     # True表示用户已激活,False表示用户未激活
     isActive = models.BooleanField(default=True)
+    # 增加对Publisher(多)的引用
+    publishers = models.ManyToManyField(Publisher)
     def __repr__(self):
       return "Author:%r"%self.name
     def __str__(self):
@@ -51,6 +52,8 @@ class Book(models.Model):
     publicate_date = models.DateField()
     #增加对Publisher(一)的引用
     publisher = models.ForeignKey(Publisher,null=True)
+    #增加对Author(多)的引用
+    authors = models.ManyToManyField(Author)
     def __repr__(self):
       return "Book:%r"%self.title
     def __str__(self):
@@ -79,7 +82,23 @@ class Wife(models.Model):
       verbose_name_plural=verbose_name
       ordering=['age']
 
+class Person(models.Model):
+    SHIRT_SIZES = (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+    )
+    name = models.CharField(max_length=60)
+    shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
 
+    def __repr__(self):
+      return "Person:%r"%self.name
+    def __str__(self):
+      return self.name
+    class Meta:
+      db_table = 'person'
+      verbose_name = '人性'
+      verbose_name_plural = verbose_name
 
 
 

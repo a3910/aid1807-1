@@ -163,25 +163,41 @@ def doSQL(request):
 
 def check_views(request):
 
-  wife = Wife.objects.get(name="涟漪")
-  author = wife.author
-  print("娘子是%s,年龄%d"%(wife.name,wife.age))
-  print("书生是%s,年龄%d"%(author.name,author.age))
+  # wife = Wife.objects.get(name="涟漪")
+  # author = wife.author
+  # print("娘子是%s,年龄%d"%(wife.name,wife.age))
+  # print("书生是%s,年龄%d"%(author.name,author.age))
+  #
+  # author = Author.objects.get(name="哲学吕")
+  # wife = author.wife
+  # print("娘子是%s,年龄%d"%(wife.name,wife.age))
+  # print("书生是%s,年龄%d"%(author.name,author.age))
+  #
+  # book = Book.objects.get(title="明王")
+  # publisher = book.publisher
+  # print("书名是%s,日期%s"%(book.title,book.publicate_date))
+  # print("出版社是%s,网址%s"%(publisher.name,publisher.website))
+  #
+  # publisher = Publisher.objects.get(name = "人民教育出版社")
+  # book=publisher.book_set.all()
+  # print("出版社是%s,网址%s"%(publisher.name,publisher.website))
+  # for book in book:
+  #   print("书名是%s,日期%s"%(book.title,book.publicate_date))
+  #通过book查询author
+  # book = Book.objects.get(id=1)
+  # print("书名是%s"%(book.title))
+  # authors=book.authors.all()
+  # print("编写的作者有：")
+  # for author in authors:
+  #   print("姓名是%s"%(author.name))
 
-  author = Author.objects.get(name="哲学吕")
-  wife = author.wife
-  print("娘子是%s,年龄%d"%(wife.name,wife.age))
-  print("书生是%s,年龄%d"%(author.name,author.age))
+  authors = Author.objects.get(name="MrWang")
+  print("作者是%s"%authors.name)
+  books = authors.book_set.all()
+  print("编写的书及有：")
+  for book in books:
+    print("姓名是%s"%(book.title))
 
-  book = Book.objects.get(title="明王")
-  publisher = book.publisher
-  print("书名是%s,日期%s"%(book.title,book.publicate_date))
-  print("出版社是%s,网址%s"%(publisher.name,publisher.website))
 
-  publisher = Publisher.objects.get(name = "人民教育出版社")
-  book=publisher.book_set.all()
-  print("出版社是%s,网址%s"%(publisher.name,publisher.website))
-  for book in book:
-    print("书名是%s,日期%s"%(book.title,book.publicate_date))
   return HttpResponse("OK")
 
