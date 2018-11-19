@@ -3,7 +3,7 @@ from django.db import connection
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .models import *
+from .models import *quest
 
 
 def parent_views(request):
@@ -194,10 +194,19 @@ def check_views(request):
   authors = Author.objects.get(name="MrWang")
   print("作者是%s"%authors.name)
   books = authors.book_set.all()
-  print("编写的书及有：")
+  print("编写的书籍有：")
   for book in books:
     print("姓名是%s"%(book.title))
 
 
   return HttpResponse("OK")
 
+def objects_views(request):
+  count=Author.objects.isactive_count()
+  lt1 = Author.objects.age_lt(28)
+  for lt in lt1:
+    print(lt.name)
+  count2=Book.objects.title_count("余罪")
+  print(count2)
+  # return HttpResponse("数量为%d,%s,%d"%(count,lt1,count2))
+  return HttpResponse("OK")

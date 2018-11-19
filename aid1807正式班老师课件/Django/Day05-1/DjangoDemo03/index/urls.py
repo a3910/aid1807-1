@@ -19,5 +19,6 @@ urlpatterns += [
   url(r'^01-raw/$', raw_views),
   url(r'^01-dbsql/$', doSQL),
   url(r'^01-check/$',check_views),
+  url(r'^02-objects/$', objects_views),
 ]
 

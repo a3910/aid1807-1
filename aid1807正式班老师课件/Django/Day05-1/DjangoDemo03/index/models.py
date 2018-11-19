@@ -1,4 +1,18 @@
 from django.db import models
+#自定义ＡuthorManager类型，继承自models.Manager
+#并自定义方法
+class AuthorManager(models.Manager):
+    def isactive_count(self):
+        #查询isactive=True的数量
+        return self.filter(isActive=True).count()
+
+    def age_lt(self,age):
+        return self.filter(age__lt=age)
+
+class BookManager(models.Manager):
+    def title_count(self,kw):
+        # 查询isactive=True的数量
+        return self.filter(title__contains=kw).count()
 
 # Create your models here.
 #创建一个实体类-Publisher(出版社)
@@ -27,6 +41,8 @@ class Publisher(models.Model):
 
 #创建Author实体类
 class Author(models.Model):
+    #通过AuthorManager来覆盖掉默认的objects
+    objects=AuthorManager()
     name = models.CharField(max_length=30)
     age = models.IntegerField()
     email = models.EmailField(null=True)
@@ -48,6 +64,8 @@ class Author(models.Model):
 
 #创建Book实体类
 class Book(models.Model):
+    #通过BookManager来覆盖掉默认的objects
+    objects=BookManager()
     title = models.CharField(max_length=50)
     publicate_date = models.DateField()
     #增加对Publisher(一)的引用
