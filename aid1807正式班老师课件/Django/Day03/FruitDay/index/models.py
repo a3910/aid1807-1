@@ -14,7 +14,6 @@ class GoodType(models.Model):
         verbose_name='商品类型'
         verbose_name_plural=verbose_name
 
-
 class Goods(models.Model):
     title = models.CharField(max_length=50,verbose_name="商品类型")
     price = models.DecimalField(max_digits=7,decimal_places=2,verbose_name="商品价格")
@@ -33,4 +32,18 @@ class Goods(models.Model):
         verbose_name = "商品"
         verbose_name_plural=verbose_name
 
-
+class Users(models.Model):
+    uphone = models.CharField(max_length=11,verbose_name='手机号')
+    upwd = models.CharField(max_length=30,verbose_name="密码")
+    uemail = models.EmailField(verbose_name="用户邮箱")
+    uname = models.CharField(max_length=20,verbose_name='用户名')
+    #启用/禁用-BooleanField()
+    isActive = models.BooleanField(default=True,verbose_name='启用/禁用')
+    def __str__(self):
+        return self.uname
+    def __repr__(self):
+        return "<Users:%r>"%self.uname
+    class Meta:
+        db_table = 'users'
+        verbose_name='用户'
+        verbose_name_plural=verbose_name
