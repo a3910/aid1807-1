@@ -3,7 +3,7 @@ from django.db import connection
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .models import *quest
+from .models import *
 
 
 def parent_views(request):
@@ -203,6 +203,7 @@ def check_views(request):
 
 def objects_views(request):
   count=Author.objects.isactive_count()
+  print(count)
   lt1 = Author.objects.age_lt(28)
   for lt in lt1:
     print(lt.name)
