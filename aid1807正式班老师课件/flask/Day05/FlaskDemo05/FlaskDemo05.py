@@ -122,7 +122,7 @@ def query_views():
     # result = db.session.query(Users).filter(Users.email.like('%w%')).all()
 
     # 查询Users中所有的age的总和 - 聚合函数
-    # result=db.session.query(func.avg(Users.age)).all()
+    result=db.session.query(func.avg(Users.age)).all()
 
     # 查询id在2,3之间的Users的信息
     # result = db.session.query(Users).filter(Users.id.in_([2,3])).all()
@@ -145,4 +145,4 @@ def queryall_views():
     return render_template('03-queryall.html',users = users)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=3910)

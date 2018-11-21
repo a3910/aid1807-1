@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #启动程序
 from app import create_app
 
