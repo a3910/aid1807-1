@@ -1,0 +1,117 @@
+{% extends 'login.html' %}
+
+{% block h2 %}
+  注册会员
+{% endblock %}
+
+
+{% block anchor %}
+  <a href="{% url 'login' %}">会员登录</a>
+{% endblock %}
+
+{% block form %}
+  <form action="xxx" method="post"  id="formReg">
+    <!-- 1.手机号 -->
+    <div id="" class="form-line">
+      <p>手机号</p>
+      <div id="" class="">
+        <input class="form-control" type="text" name="uphone">
+          <span id="uphone-show"></span>
+      </div>
+    </div>
+    <!-- 2.密码-->
+    <div id="" class="form-line">
+      <p>密码</p>
+      <div id="" class="">
+        <input class="form-control" type="password" name="upwd">
+      </div>
+    </div>
+    <!-- 3.确认密码-->
+    <div id="" class="form-line">
+      <p>确认密码</p>
+      <div id="" class="">
+        <input class="form-control" type="password" name="cpwd">
+      </div>
+    </div>
+    <!-- 4.用户名　-->
+    <div id="" class="form-line">
+      <p>用户名</p>
+      <div id="" class="">
+        <input class="form-control" type="text" name="uname">
+      </div>
+    </div>
+    <!-- 5.邮箱-->
+    <div id="" class="form-line">
+      <p>邮箱</p>
+      <div id="" class="">
+        <input class="form-control" type="email" name="uemail">
+      </div>
+    </div>
+    <!-- 6.按钮行-->
+    <div id="" class="form-line">
+      <p></p>
+      <div id="" class="">
+        <input class="loginBtn btn" type="submit" value="注册"><input class="registBtn btn" type="button" value="会员登录" id="btnLogin">
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{% block style %}
+  <style>
+    #regist>form{
+      margin-top:20px;
+    }
+  </style>
+{% endblock %}
+
+{% block js %}
+  <script>
+    $(function(){
+        var phonestatus=1;
+      $("#btnLogin").click(function(){
+        location.href='{% url 'login' %}';
+      });
+    /** $("[name='uphone']").blur(function () {
+    if ($(this).val().trim().length == 0)
+        return;
+    $.get('/checkuphone/', {
+        'uphone': $(this).val()
+        }, function (data) {
+        $('#uphone-show').html(data.msg)
+    }, 'json');
+});**/
+    /**1.为uhpone控件绑定blur事件*/
+      $("[name='uphone']").blur(function() {
+          //如果文本框内没有任何东西则返回
+          if ($(this).val().trim().length == 0)
+              return;
+          //如果文本框内有数据的话则发送ajax请求判断数据是否存在
+          $.get(
+              '/checkuphone/',
+              {'uphone': $(this).val()},
+              function (data) {
+                  $("#uphone-show").html(data.msg);
+                  phonestatus = data.status;
+              }, 'json');
+      });
+      /**2.为#formReg表单元素绑定submit事件*/
+      $("#formReg").submit(function(){
+        //判断registStatus的值，决定表单是否要被提交
+        if(phonestatus == 1){
+          return false;
+        }
+        return true;
+      });
+
+    });
+  </script>
+    <!--<script src="/static/js/register.js"></script>-->
+{% endblock %}
+
+
+
+
+
+
+

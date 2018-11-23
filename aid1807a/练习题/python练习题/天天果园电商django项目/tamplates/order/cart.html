@@ -1,0 +1,133 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block title %}
+    <title>天天果园-购物车</title>
+    {% endblock title %}
+{% block ordert %}
+{% endblock ordert %}
+    {% block body %}
+	<div class="total_count">全部商品<em id="total_count1">2</em>件</div>
+	<ul class="cart_list_th clearfix">
+		<li class="col01">商品名称</li>
+		<li class="col02">商品单位</li>
+		<li class="col03">商品价格</li>
+		<li class="col04">数量</li>
+		<li class="col05">小计</li>
+		<li class="col06">操作</li>
+	</ul>
+        {% for cart in carts %}
+	<ul class="cart_list_td clearfix" id="{{ cart.id }}">
+		<li class="col01"><input type="checkbox" name="" checked></li>
+		<li class="col02"><img src="/{{ cart.cgoods.picture }}"></li>
+		<li class="col03">{{ cart.cgoods.title }}<br><em>{{ cart.cgoods.price }}元/500g</em></li>
+		<li class="col04">500g</li>
+		<li class="col05">{{ cart.cgoods.price }}元</li>
+		<li class="col06">
+			<div class="num_add">
+				<a href="javascript:add();" class="add fl">+</a>
+				<input type="text" class="num_show fl" value="{{ cart.ccount }}">
+				<a href="javascript:sub();" class="minus fl">-</a>
+			</div>
+		</li>
+		<li class="col07">25.80元</li>
+		<li class="col08"><a href="/order/cart_delete_{{ cart.id }}/">删除</a></li>
+	</ul>
+        {% endfor %}
+
+	
+
+	<ul class="settlements">
+		<li class="col01"><input type="checkbox" name="" checked="" id="check_all"></li>
+		<li class="col02">全选</li>
+		<li class="col03">合计(不含运费)：<span>¥</span><em id="total">42.60</em><br>共计<b id="total_count2">2</b>件商品</li>
+		<li class="col04"><a href="javascript:go_order();">去结算</a></li>
+	</ul>
+
+    {% endblock body %}
+    {% block endscript %}
+        <script>
+        //发get请求，跳转页面到place_order
+        function go_order() {
+            url = '/order/place_order/';
+            index = 0;
+            $(':checkbox:not(#check_all)').each
+            (function () {
+                if ($(this).prop('checked')) {
+                    cart_id = $(this).parents('.cart_list_td').attr('id');
+                    if (index == 0) {
+                        url += '?cart_id=' + cart_id;
+                    } else {
+                        url += '&cart_id=' + cart_id;
+                    }
+                    index++;
+                }
+            });
+            //跳转到订单页面
+            location.href = url;
+        }
+
+        function cal_total() {
+            total = 0;
+            total_count = 0;
+            $('.col07').each(function () {
+                price = $(this).prev().prev().text();
+                cnt = $(this).prev().find('input').val();
+                subtotal = parseFloat(price) * parseFloat(cnt);
+                $(this).text(subtotal.toFixed(2)+'元');
+                total += subtotal;
+                total_count += 1;
+            });
+            $('#total').text(total.toFixed(2));
+            $('#total_count1').text(total_count);
+            $('#total_count2').text(total_count);
+        }
+
+        $('.num_show').blur(function () {
+            cnt = $(this).val();
+            if(cnt<=0){
+                alert('数量错误，不能是0或负数');
+                $(this).val(1).focus();
+                return;
+            }
+            //向服务器发请求，修改购物车中条目的数量
+            cart_id = $(this).parents('.cart_list_td').attr('id');
+            $.get('/order/edit_'+cart_id+'_'+cnt+'/',function (data) {
+                if(data.result==0){
+                    cal_total();
+                }else{
+                    $(this).val(data.result);
+                };
+            });
+        });
+
+
+        $('.add').click(function () {
+            var t = $(this).next();
+            t.val(parseFloat(t.val())+1);
+            t.blur();
+        })
+
+        $('.minus').click(function () {
+            var t = $(this).prev();
+            t.val(parseFloat(t.val())-1);
+            t.blur();
+        })
+
+        $('#check_all').click(function () {
+            state = $(this).prop('checked');//取出状态
+            $(':checkbox').prop('checked',state);
+        });
+
+        $(':checkbox:not(#check_all)').click(function () {
+            if($(this).prop('checked') && $(':checked').length+1==$(':checkbox').length){
+                $('#check_all').prop('checked',true);
+            }else{
+                $('#check_all').prop('checked',false);
+        }});
+
+
+        cal_total();
+
+
+        </script>
+    {% endblock endscript %}

@@ -1,0 +1,9 @@
+1.用生成器函数，生成质数，给出起始值begin和终止值stop,此生成器函数为
+　　prime(begin, end)
+  如果[x for x in prime(10, 20)] --> [11,13,17,19]
+  练习使用yield
+2.写一个生成器函数，生成斐波那契数列的前n个数
+　　fibnacci(n)
+3.思考题：
+　　　　如何让学生管理系统启动时就读入以前的学生信息
+见：8.29 ../homework/homework

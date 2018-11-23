@@ -1,0 +1,132 @@
+	{% extends 'base.html' %}
+	{% load static %}
+	{% block title %}
+	<title>天天果园-商品详情</title>
+	{% endblock title %}
+	{% block body %}
+
+
+	<div class="goods_detail_con clearfix">
+		<div class="goods_detail_pic fl"><img src="/{{goods.picture}}"></div>
+
+		<div class="goods_detail_list fr">
+			<h3>{{goods.title}}</h3>
+			<p>{{goods.desc}}</p>
+			<div class="prize_bar">
+				<span class="show_pirze">¥<em id="gprice">{{goods.price}}</em></span>
+				<span class="show_unit">单  位：500g</span>
+			</div>
+			<div class="goods_num clearfix">
+				<div class="num_name fl">数 量：</div>
+				<div class="num_add fl">
+					<input type="text" class="num_show fl" value="1">
+					<a href="javascript:add();" class="add fr">+</a>
+					<a href="javascript:sub();" class="minus fr">-</a>
+				</div> 
+			</div>
+			<div class="total">总价：<em id="gtotal">16.80元</em></div>
+			<div class="operate_btn">
+				<a href="javascript:;" class="buy_btn">立即购买</a>
+				<a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>				
+			</div>
+		</div>
+	</div>
+
+	<div class="main_wrap clearfix">
+		<div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>新品推荐</h3>
+				<ul>
+					<li>
+						<a href="#"><img src="/{{newlist.0.picture}}"></a>
+						<h4><a href="#">{{newlist.0.title}}</a></h4>
+						<div class="prize">￥{{newlist.0.price}}</div>
+					</li>
+					<li>
+						<a href="#"><img src="/{{newlist.1.picture}}"></a>
+						<h4><a href="#">{{newlist.1.title}}</a></h4>
+						<div class="prize">￥{{newlist.1.price}}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="r_wrap fr clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">商品介绍</li>
+				<li>评论</li>
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dt>商品详情：</dt>
+					<dd>{{goods.desc}}</dd>
+				</dl>
+			</div>
+
+		</div>
+	</div>
+
+        <div class="add_jump"></div>
+	{% endblock body %}
+
+{% block endscript %}
+    <script type="text/javascript">
+
+		function cal_total(){
+			var num = parseFloat($('.num_show').val());
+			var price = parseFloat($('#gprice').text());
+			var total = num * price;
+			$('#gtotal').text(total.toFixed(2)+'元');
+		}
+
+
+
+		function add(){
+			var num = parseFloat($('.num_show').val());
+			$('.num_show').val(num+1);
+			$('.num_show').blur();
+		}
+
+		function sub(){
+			var num = parseFloat($('.num_show').val());
+			$('.num_show').val(num-1);
+			$('.num_show').blur();
+		}
+
+
+		$(function(){
+			$('.num_show').blur(function(){
+				cal_total();
+			});
+		});
+
+		cal_total();
+
+
+
+		var $add_x = $('#add_cart').offset().top;
+		var $add_y = $('#add_cart').offset().left;
+
+		var $to_x = $('#show_count').offset().top;
+		var $to_y = $('#show_count').offset().left;
+
+		$(".add_jump").css({'left':$add_y+80,'top':$add_x+10,'display':'block'})
+		$('#add_cart').click(function(){
+			$(".add_jump").stop().animate({
+				'left': $to_y+7,
+				'top': $to_x+7},
+				"fast", function() {
+					$(".add_jump").fadeOut('fast',function(){
+						$('#show_count').text();
+					});
+
+			});
+		{# 将商品加入购物车,发异步请求 #}
+		var num = parseInt($('.num_show').val());
+		$.get('/order/add/{{goods.id}}/'+num+'/',function(data){
+				$('#show_count').text(data.count);
+			});
+		});
+	</script>
+{% endblock endscript %}

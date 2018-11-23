@@ -1,0 +1,48 @@
+		{% extends 'baseusercenter.html'%}
+		{% load static %}
+		{% block body %}
+		<script>
+			$('#user_onc2').addClass('active');
+		</script>
+		<div class="right_content clearfix">
+				<h3 class="common_title2">全部订单</h3>
+                {% for orders in orderlist %}
+				<ul class="order_list_th w978 clearfix">
+					<li class="col01">{{ orders.date }}</li>
+					<li class="col02">{{ orders.id }}</li>
+					<li class="col02 stress">未支付</li>		
+				</ul>
+				<table class="order_list_table w980">
+					<tbody>
+						<tr>
+							<td width="55%">
+                                {% for orderline in orders.orderline_set.all %}
+								<ul class="order_goods_list clearfix">					
+									<li class="col01"><img src="/{{ orderline.goods.picture }}"></li>
+									<li class="col02">{{ orderline.goods.title }}<em>{{ orderline.goods.price }}元/500g</em></li>
+									<li class="col03">{{ orderline.count }}</li>
+									<li class="col04">11.80元</li>	
+								</ul>
+                                {% endfor %}
+							</td>
+							<td width="15%">33.60元</td>
+							<td width="15%">待付款</td>
+							<td width="15%"><a href="#" class="oper_btn">去付款</a></td>
+						</tr>
+					</tbody>
+				</table>
+                {% endfor %}
+
+
+				<div class="pagenation">
+					<a href="#">&lt;上一页</a>
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">下一页&gt;</a>
+				</div>
+		</div>
+	</div>
+	{% endblock body %}

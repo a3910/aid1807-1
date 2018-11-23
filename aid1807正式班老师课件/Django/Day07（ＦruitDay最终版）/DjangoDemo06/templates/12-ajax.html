@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+</head>
+<body>
+    <button onclick="btnAjax()">ajax请求</button>
+
+</body>
+<script>
+    function btnAjax(){
+        $.get('/12-server/',function(data){
+            //data表示的是响应回来的数据
+          $.each(data,function(i,obj){
+              console.log("++++++++++++");
+              console.log(obj.pk);
+              console.log(obj.fields.name);
+              console.log(obj.fields.age);
+              console.log(obj.fields.email);
+              console.log(obj.fields.isActive);
+        });
+          console.log(data);
+        },'json');
+    }
+</script>
+</html>

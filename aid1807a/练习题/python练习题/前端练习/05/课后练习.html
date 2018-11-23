@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <style>
+   td{
+	width:100px;
+	text-align:center;
+   }
+  </style>
+ </head>
+ <body>
+   <h1>使用属性选择器实现标签页头的切换</h1>
+   <table cellspacing="0px">
+	<tr>
+	  <td id="td1">十元套餐</td>
+	  <td>二十元套餐</td>
+	  <td>三十元套餐</td>
+	</tr>
+   </table>
+   <script>
+	 $("td").click(function(){
+	   $("td").css("border","0");
+	   $("td").css("border-bottom","1px solid blue");
+	   $(this).css("border","1px solid blue");
+	   $(this).css("border-bottom","0px solid blue");
+	 });
+	 $("#td1").click();
+   </script>
+ </body>
+</html>

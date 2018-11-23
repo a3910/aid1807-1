@@ -1,0 +1,9 @@
+练习：
+　　写一个实现在迭代器协议的类，让此类可以生成前n个斐波那契数列
+　　class Fibonacci:
+       def __init__(self, n):
+           ....
+       ....
+
+  for x in Fobonacci(8):
+      print(x)  --> 1 1 2 3 4 7 11 18  

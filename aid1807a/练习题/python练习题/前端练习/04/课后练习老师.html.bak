@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+    <div id="keys">
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button><br>
+		<button>5</button>
+		<button>6</button>
+		<button>7</button>
+		<button>8</button><br>
+		<button>9</button>
+		<button>0</button>
+		<button>c</button>
+		<button>+</button><br>
+		<button>-</button>
+		<button>*</button>
+		<button>/</button>
+		<button>=</button>
+	</div>
+	<textarea name="" id="sc" cols="13" rows="6" readonly></textarea>
+	<script>
+		keys.onclick=function(e){
+			var btn=e.srcElement||e.target;
+			if(btn.nodeName=="BUTTON"){
+				switch(btn.innerHTML){
+					case "c"://清除
+					sc.value="";
+					break;
+					case "=":
+					sc.value=eval(sc.value);
+					break;
+					default:
+					sc.value+=btn.innerHTML;
+				}
+			}
+		}
+	</script>	
+ </body>
+</html>

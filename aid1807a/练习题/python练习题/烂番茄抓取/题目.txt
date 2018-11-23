@@ -1,0 +1,5 @@
+抓取烂番茄网站的最新电影和新鲜度，存入mangodb
+from pprint import pprint
+from pymongo import MongoClient
+from urllib.request import urlopen
+from bs4 import BeautifulSoup

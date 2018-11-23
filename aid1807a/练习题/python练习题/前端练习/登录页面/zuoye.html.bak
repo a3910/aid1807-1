@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+    #d1{
+	  width:1366px;
+	  height:561px;
+	  background:url("login/bg.png");
+	}
+	#t1{
+	  width:300px;
+	  height:200px;
+	  background-color:rgba(3,3,3,0.3);
+	  margin-top:-350px;
+	  margin-left:60px;
+	}
+	a{
+	  text-decoration:none;
+	  color:white;
+	  font-size:18px;
+	}
+	#d3{
+	  margin-top:-170px;
+	}
+	#a1{
+	  margin-left:65px;
+	  margin-right:88px;
+	}
+	#d4{
+	  margin-left:65px;
+	  margin-top:25px;
+	}
+	#d5{
+	  margin-top:3px;
+	  margin-left:65px;
+	}
+	input{
+	  font-size:15px;
+	  height:30px;
+	  width:285px;
+	  color:gray;
+	}
+	#p1,#p2{
+	  margin-top:-32px;
+	  margin-left:256px;
+	}
+  </style>
+ </head>
+ <body>
+   <div id="d1">
+   </div>
+   <div id="t1">
+   </div>
+   <div id="d3">
+     <a href="" id="a1">登陆学子商城</a>
+	 <a href="" id="a2">新用户注册</a>
+   </div>
+   <div id="d4">
+     <input type="text" placeholder="请输入您的用户名">
+	 <p id="p1">
+	   <a href="" id="a3">
+	     <img src="login/yhm.png" alt="">
+	   </a>
+	 <p>
+   </div>
+   <div id="d5">
+     <input type="password" placeholder="请输入您的密码">
+	 <p id="p2">
+	   <a href=""  id="a4">
+         <img src="login/mm.png" alt="" id="i1">
+	   </a>
+	 </p>
+   </div>
+ </body>
+</html>

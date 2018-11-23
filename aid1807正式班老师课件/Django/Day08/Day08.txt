@@ -1,0 +1,104 @@
+1.Django 中的 Ajax 处理
+	1.Django 处理 JSON
+		1.Django 中的 查询结果集处理
+			使用Django提供的序列化的类来完成QuerySet到JSON字符串的转换
+
+			from django.core import serializers
+			jsonStr=serializers.serialize('json',QuerySet)
+	2.提交POST请求
+		1.网页中任意一个位置增加 {% csrf_token %}
+			目的：是为了得到csrf令牌(隐藏域)的键和值
+		2.在ajax post 请求中提交参数时，需要将csrf令牌的键和值也提交给服务器
+
+2.项目
+	1.[登录]  [注册有惊喜]
+		1.如果没有用户登录 则显示[登录]  [注册有惊喜]
+		2.如果有用户登录 则显示 欢迎:xxxx 退出
+		3.使用 ajax 技术完成述操作
+			1.网页加载时向服务器发送异步请求
+			2.服务器提供处理函数，验证用户是否登录成功，如果登录成功 将uname响应回来即可
+		完成时间：15分钟
+			有登录信息：
+				{
+					'loginStatus':1,
+					'uname':'王老师',
+				}
+			没有登录信息：
+				{
+					'loginStatus':0
+				}
+	2.改版 登录验证业务
+		1.原始：只判断了 session
+		2.改版：如果session中没有数据的话，继续判断cookies
+			1.cookies中没有数据 ， 则表示未登录
+			2.cookies中有数据的话，则将数据取出来保存进session，再响应
+	3.读取商品类型以及商品并显示在index.html上 - AJAX
+		1.后端读取类型以及商品的信息并以JSON的形式返回
+			[
+				{
+					"type":商品类型的JSON,
+					"goods":商品类型对应的商品的JSON(最多10个商品)
+				},
+				{},
+				{},
+				{}
+			]
+		2.前端index.html中
+			以ajax的方式向服务器发送请求并接收数据
+			解析数据并显示在网页上
+
+	4.购物车
+		所有的用户所购买的所有的商品
+		1.创建实体类 - CartInfo
+		2.点击"购物车"图标
+			1.验证是否有登录用户
+				如果没有登录用户，则给出提示
+				如果有登录用户，向下继续执行
+			2.将商品id，用户id，购买数量插入/更新回数据库
+				商品id：点击哪个商品得到哪个id
+				用户id：从session中获取
+				购买数量：默认为1
+			3.检查数据库
+				1.如果有相同的商品id以及用户id存在的话
+					更新购买数量即可
+				2.如果没有相同的商品id以及用户id存在的话
+					将数据插入进数据库即可
+
+
+
+
+
+
+
+
+[
+	{
+		"model": "index.author", 
+		"pk": 2, 
+		"fields": {
+			"name": "\u738b\u8001\u5e08", 
+			"age": 80, 
+			"email": "laowang@163.com", 
+			"isActive": true
+		}
+	}, 
+
+
+	{"model": "index.author", "pk": 3, "fields": {"name": "\u9b4f\u8001\u5e08", "age": 40, "email": "laowei@163.com", "isActive": true}}, 
+	{"model": "index.author", "pk": 4, "fields": {"name": "\u54f2\u5b66\u5415", "age": 26, "email": "laolv@163.com", "isActive": true}}, 
+	{"model": "index.author", "pk": 5, "fields": {"name": "RapWang", "age": 80, "email": "rapwang@163.com", "isActive": true}}, 
+	{"model": "index.author", "pk": 6, "fields": {"name": "\u738b\u4f1f\u8d85\u8001\u5e08", "age": 36, "email": "wangwc@163.com", "isActive": true}}, 
+	{"model": "index.author", "pk": 7, "fields": {"name": "\u9694\u58c1\u8001\u738b", "age": 78, "email": "laowang.gebi@163.com", "isActive": true}},
+	{"model": "index.author", "pk": 8, "fields": {"name": "\u738b\u5927\u5988", "age": 86, "email": "wangdama@163.com", "isActive": true}}, 
+	{"model": "index.author", "pk": 9, "fields": {"name": "\u738b\u5927\u7237", "age": 98, "email": "wangdaye@163.com", "isActive": true}}]
+
+
+
+	{
+		"desc": "发顺丰的", 
+		"picture": "static/upload/goodstype/t4.png", 
+		"title": "\u793c\u54c1\u5361\u5238"
+	}
+{"desc": "\u6709\u5173\u5bb6\u5ead\u91cf\u8d29\u7684\u76f8\u5173\u5185\u5bb9", "picture": "static/upload/goodstype/t1.png", "title": "\u5bb6\u5ead\u91cf\u8d29"}
+{"desc": "\u5168\u7403\u9c9c\u679c\u76f8\u5e94\u5185\u5bb9", "picture": "static/upload/goodstype/t2.png", "title": "\u5168\u7403\u9c9c\u679c"}
+{"desc": "\u751f\u9c9c\u7f8e\u98df\u7684\u76f8\u5173\u5185\u5bb9", "picture": "static/upload/goodstype/t3.png", "title": "\u751f\u9c9c\u7f8e\u98df"}

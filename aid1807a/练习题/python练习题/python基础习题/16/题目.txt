@@ -1,0 +1,11 @@
+练习1:
+  写一个程序，输入很多人的名字，年龄，地址存入文件infos.txt中
+  完成输入后试查看文件格式是否为想要的
+练习2:
+  写一个程序，读入infos.txt中的内容，以表格的形式打印这些内容
+
+  提示：
+  　str.split
+   str.sprip
+   F.readline
+   F.readlines()

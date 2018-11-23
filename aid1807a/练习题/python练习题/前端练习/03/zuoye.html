@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	ul{
+		margin:0;
+		padding:0;
+	}
+	#banner img{
+		width:960px;
+	}
+	#banner{
+		width:960px;
+		height:380px;
+		overflow:hidden;
+		margin:0 auto;
+		position:relative;
+	}
+	#banner ul.banner-img li{
+		float:left;
+	}
+	#banner a.ck-slide{
+		position:absolute;
+		width:35px;
+		height:70px;
+		background:rgba(0,0,0,0.3);
+		border-radius:5px;
+		top:155px;
+	}
+	#banner a.ck-left{
+		left:5px;
+		background:#ddd url(login/left.jpg) no-repeat center center;
+	}
+	#banner a.ck-right{
+		right:5px;
+		background:#ddd url(login/right.jpg) no-repeat center center;
+	}
+	#banner ul.indicators{
+		position:absolute;
+		bottom:30px;
+		left:450px;
+	}
+	#banner ul.indicators li{
+		width:10px;
+		height:10px;
+		border-radius:50%;
+		background:#fff;
+		display:inline-block;
+		margin-right:5px;
+	}
+	#banner ul.indicators li.active{
+		background:#005aa0;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="banner">
+		<ul class="banner-img" type="none">
+			<li>
+				<a href="">
+					<img src="login/banner1.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="login/banner2.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="login/banner3.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="login/banner4.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+		<a href="#" class="ck-slide ck-left"></a>
+		<a href="#" class="ck-slide ck-right"></a>
+		<ul class="indicators" type="none">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+ </body>
+</html>

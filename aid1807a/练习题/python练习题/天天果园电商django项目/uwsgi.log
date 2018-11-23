@@ -1,0 +1,324 @@
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:24:50 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:24:54 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:28:40 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:31 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:32 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:33 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:33 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:34 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:34 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:35 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:35 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:36 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:36 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:37 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:37 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:32:37 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:33:22 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDayTeacher
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Nov 11 15:33:48 2017] ***
+compiled with version: 5.4.0 20160609 on 31 August 2017 21:02:04
+os: Linux-4.4.0-96-generic #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017
+nodename: tedu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/tarena/django/FruitDayTeacher
+writing pidfile to uwsgi.pid
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/tarena/django/FruitDay
+your processes number limit is 15581
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+The -s/--socket option is missing and stdin is not a socket.
