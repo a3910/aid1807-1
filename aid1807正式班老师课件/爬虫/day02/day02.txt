@@ -1,0 +1,181 @@
+Day01回顾
+1、请求模块(urllib.request)
+  1、Request(url,data=data,headers=headers)
+  2、urlopen(请求对象)
+2、响应对象res的方法
+  1、read() --> bytes
+     res.read().decode("utf-8")
+  2、getcode() 
+  3、geturl()
+3、url编码模块(urllib.parse)
+  1、urlencode(字典)
+     原始数据 ：kw = {"kw":"只手遮天"}
+     urlencode后 ："kw=%e8%d3..."
+  2、quote(字符串)
+     原始数据 ：s = "战神"
+     quote后  ："%d8%f3......"
+  3、unquote(字符串)
+4、数据爬取步骤
+  1、找URL规律(拼接)
+  2、获取响应内容
+  3、保存
+5、请求方式
+  1、GET
+  2、POST(参数名data) : 查询参数在Form表单里
+    注意 ：urllib.request.Request(url,data=data)
+           data一定要为bytes数据类型
+	   data = {......}
+	   data = urllib.parse.urlencode(data).encode("utf-8")
+6、json模块
+  字典 = json.loads(json格式的字符串)
+*****************************************
+Day02笔记
+1、解析模块
+  1、数据的分类
+    1、结构化数据
+      特点：有固定的格式,如：HTML、XML
+    2、非结构化数据
+      示例：图片、音频、视频,这类数据以二进制方式存储
+  2、正则表达式 re
+    1、使用流程
+      1、创建编译对象 ：p = re.compile('正则表达式')
+      2、对字符串进行匹配 ：r = p.match('字符串')
+      3、获取匹配结果     ：r.group()
+    2、常用方法
+      1、match(html) : 字符串开头的第1个,返回对象
+      2、search(html): 从开始往后找,匹配第1个,返回对象
+      3、findall(html) : 所有全部匹配,返回列表
+    3、表达式
+      .  : 匹配任意字符(不包括\n)
+      \d : 数字
+      \s : 空白字符
+      \S : 非空白字符
+      \w : 字母、数字、_
+      [...] : 包含[]内容 ：A[BCD]E --> ABE ACE ADE 
+
+      *  : 0次或多次
+      ?  : 0次或1次
+      +  : 1次或多次
+      {m}: m次
+      {m,n} : m-n次,  AB{1,3}C ->ABC ABBC ABBBC
+    4、贪婪匹配和非贪婪匹配
+      贪婪匹配(.*) : 在整个表达式匹配成功的前提下,尽可能多的匹配*
+      非贪婪匹配(.*?) :在整个表达式匹配成功的前提下,尽可能少的匹配*
+      见 ：01_贪婪匹配和非贪婪匹配示例.py
+    5、findall()的分组
+      见 ：02_findall分组示例.py
+    6、练习 见：03_findall分组练习.py
+	<div class="animal">
+	    <p class="name">
+		<a title="tiger"></a>
+	    </p>
+
+	    <p class="contents">
+		Two tigers two tigers run fast
+	    </p>
+	</div>
+	      
+	<div class="animal">
+	    <p class="name">
+		<a title="rabbit"></a>
+	    </p>
+
+	    <p class="contents">
+		Small while rabbit white and white
+	    </p>
+	</div>
+	第1步：      
+	[("tiger","Two tigers .."),("rabbit","Small rabbit...")]
+	第2步：
+	动物名称：tiger
+	动物描述：Two tigers ...
+  3、内涵段子脑筋急转弯抓取 
+    见：04_内涵8脑筋急转弯.py
+    网址 ：http://www.neihan8.com
+    1、步骤
+      1、找URL规律
+        第1页：https://www.neihan8.com/njjzw/
+	第2页：https://www.neihan8.com/njjzw/index_2.html
+      2、用正则匹配出题目和答案
+      3、写代码
+        1、发请求
+	2、用正则解析
+	  <div class="text-column-item.*?title="(.*?)">.*?class="desc">(.*?)</div>
+	3、保存
+  4、猫眼电影top100榜单,存到csv文件里
+    见 ：06_猫眼电影top100.py
+    网址 ：猫眼电影 - 榜单 - top100榜
+    目标 ：抓取电影名、主演、上映时间
+    1、知识点
+      1、csv模块的使用流程
+        1、打开csv文件
+	  with open("测试.csv","a",newline="") as f:
+	2、初始化写入对象
+	  writer = csv.writer(f)
+	3、写入数据(列表)
+	  writer.writerow([列表])
+    2、准备工作
+      1、找URL规律
+        第1页：http://maoyan.com/board/4?offset=0
+	第2页：http://maoyan.com/board/4?offset=10
+	第n页：offset=(n-1)*10
+      2、写正则表达式
+        <div class="movie-item-info">.*?title="(.*?)".*?class="star">(.*?)</p>.*?class="releasetime">(.*?)</p>
+      3、写代码
+2、数据持久化存储
+  1、存入mongodb数据库(pymongo模块回顾)
+    # 创建连接对象
+    conn = pymongo.MongoClient("localhost",27017)
+    # 创建数据库对象
+    db = conn.库名
+    # 创建集合对象
+    myset = db.集合名
+    # 插入数据
+    myset.insert(字典)
+
+    >>>show dbs
+    >>>use 库名
+    >>>show collections
+    >>>db.集合名.find().pretty()
+    >>>db.dropDatabase()
+    >>>db.集合名.count()
+  2、存入MySQL数据库(pymysql模块回顾)
+3、requests模块
+  1、安装
+    Anaconda Prompt : conda install requests
+    Windows cmd     : python -m pip install requests
+      ## python -m 是以管理员身份执行pip安装命令
+    Ubuntu          : sudo pip3 install requests
+  2、常用方法
+    1、requests.get(url,headers=headers)
+      发起请求,并获取响应对象
+    2、响应对象res的属性
+      1、res.text    : 字符串
+      2、res.content : 字节流
+      3、res.encoding: 指定字符编码 (ISO-8859-1)
+             ## res.encoding = "utf-8"
+      4、res.status_code : 响应码
+      5、res.url         : 实际数据的URL
+    3、get()使用场景
+      1、没有查询参数
+        res = requests.get(url,headers=headers)
+      2、有查询参数(params)
+        res = requests.get(url,params=params,headers=headers)
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
