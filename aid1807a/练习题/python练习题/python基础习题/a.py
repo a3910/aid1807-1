@@ -48,10 +48,18 @@
 #   用字符串*运算符，打印三角形
 #   　　要求输入一个整数，此整数代表此三角形离左侧的字节数
 
+def triangle(w):
+    print('+++++++++++++++++++++++++++++')
+    line=1  # 星号个数
+    while line <= w:
+        # 先算空格的个数
+        blanks = w - line
+        print(' ' * (blanks+1) + '*' * ((line * 2)-1))
+        line += 1
+    print('+++++++++++++++++++++++++++++')
 
-
-n = input('输入数字')
-print(n)
+w = int(input("输入数字:"))
+triangle(w)
 
 
 # 练习2:

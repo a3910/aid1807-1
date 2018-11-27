@@ -1,0 +1,32 @@
+Private Sub Command1_Click()
+If Val(Text1.Text) >= 99 Or Val(Text1.Text) <= -99 Then
+    MsgBox "输入的参数值必须大于-100同时小于100", vbCritical, "错误提示"
+    Text1.SetFocus
+ElseIf Val(Text2.Text) >= 99 Or Val(Text2.Text) <= -99 Then
+        MsgBox "输入的参数值必须大于-100同时小于100", vbCritical, "错误提示"
+        Text2.SetFocus
+ElseIf Text1.Text = "" Then
+     MsgBox "第一个数据不能为空", vbCritical + vbOKOnly, "错误提示"
+    Text1.SetFocus
+ElseIf IsNumeric(Text1.Text) = False Then
+        MsgBox "第一个数据非法", vbCritical + vbOKOnly, "错误提示"
+        Text1.SetFocus
+
+ElseIf Val(Text1.Text) <> Int(Text1.Text) Then
+        MsgBox "第一个数不能为小数", vbCritical + vbOKOnly, "错误提示"
+        Text1.SetFocus
+
+ElseIf Text2.Text = "" Then
+     MsgBox "第二个数据不能为空", vbCritical + vbOKOnly, "错误提示"
+    Text2.SetFocus
+ElseIf IsNumeric(Text2.Text) = False Then
+    MsgBox "第二个数据非法", vbCritical + vbOKOnly, "错误提示"
+    Text2.SetFocus
+ElseIf Val(Text2.Text) <> Int(Text2.Text) Then
+        MsgBox "第二个数不能为小数", vbCritical + vbOKOnly, "错误提示"
+        Text2.SetFocus
+Else
+    Text3.Text = Val(Text1.Text) + Val(Text2.Text)
+End If
+
+End Sub
