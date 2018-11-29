@@ -1,0 +1,75 @@
+1、运维概述
+  1、什么是运维
+    服务器的运行维护
+  2、名词
+    1、IDC(互联网数据中心)
+      服务器租用、机柜租用
+    2、监控软件
+      zabbix、nagios、cactti
+    3、常用Linux操作系统
+      1、CentOS
+      2、RedHat
+      3、Ubuntu
+    4、虚拟化
+    5、Web正向代理(客户端知道自己使用的代理IP)
+      1、用途
+        1、访问原来无法访问的资源(google)
+	2、对Web服务器隐藏用户信息
+    6、nginx反向代理(客户端没有感觉)
+      1、流程
+        客户端 -> 反向代理服务器 -> 把请求转发给内部网络的服务器
+      2、作用
+        1、保证内网安全,可以使用方向代理提供WAF功能,阻止WEB攻击
+	2、负载均衡,优化网站的负载
+    7、负载均衡规则(nginx反向代理)
+      1、轮询 ：逐一循环调度
+      2、权重(weight) ：指定轮询几率,权重值和访问比例成正比
+      3、ip_hash ：根据客户端IP分配固定的后端服务器
+    8、负载均衡实现(修改nginx配置文件)
+      upstream servers{#定义集群
+          server 10.10.10.11;
+	  server 10.10.10.12 weight=2;
+	  server 10.10.10.13;
+	  server 10.10.10.14 backup;
+        }
+      server{
+          listen 80;
+	  ... ...
+      }
+2、Linux常用命令
+  1、ifconfig : 查看IP地址和MAC地址
+    ## windows中为ipconfig
+  2、ping ：测试网络连通性
+    ping IP地址/域名 -c 2
+  3、nslookup ：解析域名对应的IP地址
+    nslookup www.baidu.com
+  4、top ：Linux下的任务管理器,动态显示当前所有进程CPU以及内存的使用率,q退出
+  5、ps -aux : 显示系统进程(PID号)
+     ps -aux | grep "mysql"
+  6、kill ：杀死1个进程
+    sudo kill PID号
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

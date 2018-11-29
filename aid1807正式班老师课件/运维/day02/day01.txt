@@ -1,0 +1,145 @@
+1、运维概述
+  1、什么是运维
+    服务器的运行维护
+  2、名词
+    1、IDC(互联网数据中心)
+      服务器租用、机柜租用
+    2、监控软件
+      zabbix、nagios、cactti
+    3、常用Linux操作系统
+      1、CentOS
+      2、RedHat
+      3、Ubuntu
+    4、虚拟化
+    5、Web正向代理(客户端知道自己使用的代理IP)
+      1、用途
+        1、访问原来无法访问的资源(google)
+	2、对Web服务器隐藏用户信息
+    6、nginx反向代理(客户端没有感觉)
+      1、流程
+        客户端 -> 反向代理服务器 -> 把请求转发给内部网络的服务器
+      2、作用
+        1、保证内网安全,可以使用方向代理提供WAF功能,阻止WEB攻击
+	2、负载均衡,优化网站的负载
+    7、负载均衡规则(nginx反向代理)
+      1、轮询 ：逐一循环调度
+      2、权重(weight) ：指定轮询几率,权重值和访问比例成正比
+      3、ip_hash ：根据客户端IP分配固定的后端服务器
+    8、负载均衡实现(修改nginx配置文件)
+      upstream servers{#定义集群
+          server 10.10.10.11;
+	  server 10.10.10.12 weight=2;
+	  server 10.10.10.13;
+	  server 10.10.10.14 backup;
+        }
+      server{
+          listen 80;
+	  ... ...
+      }
+2、Linux常用命令
+  1、ifconfig : 查看IP地址和MAC地址
+    ## windows中为ipconfig
+  2、ping ：测试网络连通性
+    ping IP地址/域名 -c 2
+  3、nslookup ：解析域名对应的IP地址
+    nslookup www.baidu.com
+  4、top ：Linux下的任务管理器,动态显示当前所有进程CPU以及内存的使用率,q退出
+  5、ps -aux : 显示系统进程(PID号)
+     ps -aux | grep "mysql"
+  6、kill ：杀死1个进程
+    sudo kill PID号
+  7、df -h : 查看磁盘使用情况
+  8、ls -lh : l表示长格式,h提供易读单位
+    ls -lh 文件名
+  9、chmod ：修改文件权限
+    chmod +x 文件名 
+    chmod 644 文件名 
+        rw-r--r--
+    r : 4
+    w : 2
+    x : 1
+  10、wc -l ：统计文件的行数
+    wc -l /etc/passwd :统计Linux系统有多少个用户
+  11、sort ：对文件中的内容进行排序
+    sort ip.txt
+  12、uniq -c
+    1、作用 ：去除重复行,并统计每行出现的次数(相邻行)
+    2、用法 ：sort 文件名 | uniq -c
+  13、find命令 ：根据指定条件查找文件/目录
+    1、-name ：文件名查找
+       -iname ：不区分大小写
+      find 路径 -name "文件名"
+      1、查找 ~/spider目录中的所有的 py 文件
+        find ~/spider -name "*.py"
+    2、-type ：根据类型查找(文件 | 目录)
+      1、常用选项
+        -f ：文件
+	-d ：目录
+	-l ：链接(link快捷方式)
+      2、查找主目录下以mysql开头的文件
+        find ~ -name "mysql*" -type f
+    3、-size ：按大小查找
+      1、+ ：大于...的文件/目录
+      2、- ：小于...的文件/目录
+      3、查找/home/treana/software大于20M的文件
+        find ~/sofware -size +20M -type f
+    4、-ctime ：根据时间查找
+      1、-ctime +1 ：1天以前的文件/目录
+      2、-cmin -5  ：5分钟以内的文件/目录
+      3、查找~/spider下1天以内的文件
+        find ~/spider -ctime -1 -type f
+    5、处理动作
+      find .... -exec Linux命令 {} \;
+      1、查找1天以内的以.doc结尾的文件,然后删除
+        find . -name "*.doc" -ctime -1 -type f -exec rm -rf {} \;
+  14、ssh ：远程连接到服务器
+    1、格式 ：ssh 用户名@IP地址
+    2、示例 ：ssh tarena@X.X.X.X
+  15、scp 
+    1、远程复制文件/目录
+    2、scp 文件名 用户名@IP地址:绝对路径
+       scp A.tar.gz tarena@X.X.X.X:/home/tarena
+  16、du -sh ：显示当前目录大小
+    du -sh 目录名
+3、运维工具
+  1、xshell(软件,安装在windows)
+    安全终端模拟软件
+  2、xshell使用方法
+    文件 - 新建 - 输入服务器IP地址 - 用户名 - 密码 - 确认连接
+  3、Windows <--> Linux
+    1、安装lszrz
+      sudo apt-get install lrzsz
+    2、Windows文件 -> Linux
+      xshell终端 ：$ rz
+    3、Linux文件 -> Windows
+      xshell终端 ：$ sz 文件名
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
